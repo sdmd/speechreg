@@ -1,3 +1,8 @@
+#this is for python --V 2.7
+#pip install SpeechRecognition
+#pip install pyttsx3
+
+
 import speech_recognition as sr
 from time import ctime
 import time
@@ -15,14 +20,16 @@ top.minsize(300,100)
 top.geometry("300x100")
 
 
-
+#function for text to speech
 def speak(audiostr):
     print(audiostr)
     engine = pyttsx3.init()
     ttstxt=audiostr
     engine.say(ttstxt)
     engine.runAndWait()
+    
 
+#function for TTS
 def Mytts():
     engine = pyttsx3.init()
     fl=open("speechtext.txt","r")
@@ -34,7 +41,7 @@ def Mytts():
 
 
 
-
+#function for Speech Recocognization
 def recordAudio():
     
     r = sr.Recognizer()                                                                                   
@@ -58,7 +65,7 @@ def recordAudio():
 
 
 
-
+#function for voice assistant
 def tahoe(data):
 
     if 'what is the time' in data :
@@ -76,15 +83,19 @@ def tahoe(data):
 speak("Welcome")
 speak("Please select option from the box")
 
+#function for continious Speech recognization process
 def start():
     time.sleep(2)
-    speak("Hi Sayed, I can recognize your speech?")
+    speak("Hello! Sir, I can recognize your speech")
     while True:
         data = recordAudio()
         tahoe(data)
         if data == "exit":
             speak("Exit Successfully")
+            top.destroy()
             sys.exit(0)
+            
+            
 
 B1 = Tkinter.Button(top, text = "Text to Speech", command = Mytts)
 B1.place(x = 100,y = 10)
