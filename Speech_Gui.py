@@ -2,10 +2,11 @@
 #pip install SpeechRecognition
 #pip install pyttsx3
 
+#import time
 
 import speech_recognition as sr
 from time import ctime
-import time
+
 import os
 import pyttsx3
 import sys
@@ -83,7 +84,7 @@ def tahoe(data):
 speak("Welcome")
 speak("Please select option from the box")
 
-#function for continious Speech recognization process
+#function for continuous Speech recognization process
 def start():
     time.sleep(2)
     speak("Hello! Sir, I can recognize your speech")
